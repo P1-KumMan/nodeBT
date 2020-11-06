@@ -1,0 +1,16 @@
+{
+  "name": "nodebt",
+  "version": "1.0.0",
+  "description": "training",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js"
+  },
+  "author": "adi",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.6"
+  }
+}
