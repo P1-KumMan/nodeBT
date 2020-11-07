@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 
 const morgan = require("morgan");
-
+const bodyParser = require("body-parser");
 const postRoutes = require("./routes/post");
 const mongoose = require("mongoose");
 // load env variables
@@ -17,6 +17,7 @@ const MyMiddle = (req, res, next) => {
 app.use(MyMiddle);
 
 app.use(morgan("dev"));
+app.use(bodyParser.json());
 
 app.use("/", postRoutes);
 
