@@ -149,3 +149,5 @@ dist
     Blog
     About
 
+#mongodb
+.env

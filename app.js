@@ -1,13 +1,38 @@
-const express = require("express");
+// const express = require("express");
 
-const app = express();
+// const app = express();
 
-const { getPosts } = require("./routes/post");
+// const morgan = require("morgan");
 
-app.get("/", getPosts);
+// const postRoutes = require("./routes/post");
 
-const port = 8080;
+// const MyMiddle = (req, res, next) => {
+//   console.log("middleware applied!!");
+//   next();
+// };
 
-app.listen(port, () => {
-  console.log(`A node.js app is  listening to port:${port}`);
+// app.use(MyMiddle);
+
+// app.use(morgan("dev"));
+
+// app.use("/", postRoutes);
+
+// const port = 8080;
+
+// app.listen(port, () => {
+//   console.log(`A node.js app is  listening to port:${port}`);
+// });
+// import mongoose
+const mongoose = require("mongoose");
+// load env variables
+const dotenv = require("dotenv");
+dotenv.config();
+
+//db connection
+mongoose
+  .connect(process.env.MONGO_URI, { useNewUrlParser: true })
+  .then(() => console.log("DB Connected"));
+
+mongoose.connection.on("error", (err) => {
+  console.log(`DB connection error: ${err.message}`);
 });
